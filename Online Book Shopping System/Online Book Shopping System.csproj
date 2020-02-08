@@ -181,17 +181,16 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
-    <Content Include="HomePage.aspx" />
+    <Content Include="Web Pages\HomePage.aspx" />
     <Content Include="Styles\HomeStyle.css" />
-    <Content Include="MasterPage.Master">
+    <Content Include="Web Pages\MasterPage.Master">
       <BrowseToURL>~/MasterPage.Master</BrowseToURL>
     </Content>
-    <Content Include="SigninPage.aspx" />
-    <Content Include="SignupPage.aspx" />
+    <Content Include="Web Pages\SellerPage.aspx" />
+    <Content Include="Web Pages\SigninPage.aspx" />
+    <Content Include="Web Pages\SignupPage.aspx" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Styles\MasterPageStyle.css" />
-    <Content Include="SignInForm.aspx" />
-    <Content Include="SignupForm.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -371,51 +370,38 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Entity\Books\Book.cs" />
-    <Compile Include="Entity\Books\BookManager.cs" />
-    <Compile Include="Entity\Users\User.cs" />
-    <Compile Include="Entity\Users\UserManager.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="HomePage.aspx.cs">
+    <Compile Include="Web Pages\HomePage.aspx.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="HomePage.aspx.designer.cs">
+    <Compile Include="Web Pages\HomePage.aspx.designer.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="MasterPage.Master.cs">
+    <Compile Include="Web Pages\MasterPage.Master.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="MasterPage.Master.designer.cs">
+    <Compile Include="Web Pages\MasterPage.Master.designer.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositary\BookRepositary.cs" />
-    <Compile Include="Repositary\UserRepositary.cs" />
-    <Compile Include="SignInForm.aspx.cs">
-      <DependentUpon>SignInForm.aspx</DependentUpon>
+    <Compile Include="Web Pages\SellerPage.aspx.cs">
+      <DependentUpon>SellerPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="SignInForm.aspx.designer.cs">
-      <DependentUpon>SignInForm.aspx</DependentUpon>
+    <Compile Include="Web Pages\SellerPage.aspx.designer.cs">
+      <DependentUpon>SellerPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="SigninPage.aspx.cs">
+    <Compile Include="Web Pages\SigninPage.aspx.cs">
       <DependentUpon>SigninPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="SigninPage.aspx.designer.cs">
+    <Compile Include="Web Pages\SigninPage.aspx.designer.cs">
       <DependentUpon>SigninPage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="SignupForm.aspx.cs">
-      <DependentUpon>SignupForm.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="SignupForm.aspx.designer.cs">
-      <DependentUpon>SignupForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -439,16 +425,30 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
-    <Compile Include="SignupPage.aspx.cs">
+    <Compile Include="Web Pages\SignupPage.aspx.cs">
       <DependentUpon>SignupPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="SignupPage.aspx.designer.cs">
+    <Compile Include="Web Pages\SignupPage.aspx.designer.cs">
       <DependentUpon>SignupPage.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Online Book Shopping System.BL\Online Book Shopping System.BL.csproj">
+      <Project>{02b9d98c-a3c8-40e2-8f47-e6344fb277b2}</Project>
+      <Name>Online Book Shopping System.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Online Book Shopping System.DAL\Online Book Shopping System.DAL.csproj">
+      <Project>{446481EF-BD36-4D79-906A-6A4D4084B069}</Project>
+      <Name>Online Book Shopping System.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Online Book Shopping System.Entity\Online Book Shopping System.Entity.csproj">
+      <Project>{b5ec3b8b-5ad8-4482-a949-aca79b4b8929}</Project>
+      <Name>Online Book Shopping System.Entity</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

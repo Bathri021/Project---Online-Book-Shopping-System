@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="SigninPage.aspx.cs" Inherits="Online_Book_Shopping_System.SigninPage" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Web Pages/MasterPage.Master" AutoEventWireup="true" CodeBehind="SigninPage.aspx.cs" Inherits="Online_Book_Shopping_System.SigninPage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="divForm">

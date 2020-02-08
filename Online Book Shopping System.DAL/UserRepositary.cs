@@ -9,18 +9,20 @@ using System.Web;
 
 namespace Online_Book_Shopping_System.Repositary
 {
-    public class UserRepositary : User
+    public class UserRepositary
     {
+        public static Dictionary<int, User> userList = new Dictionary<int, User>();
         static string connection = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString; // Get Connection String From App.Config
 
-        SqlConnection dbConnection = new SqlConnection(connection);
+      
 
-        public int addUser(User user)
+        public static bool SignUp(User user)
         {
+            SqlConnection dbConnection = new SqlConnection(connection);
             int affectedRow;
             try
             {
-                dbConnection.Open();
+                
                 string query = "spInsertUser";
 
                 using (SqlCommand insertCommand = new SqlCommand(query,dbConnection))
@@ -33,16 +35,23 @@ namespace Online_Book_Shopping_System.Repositary
                     insertCommand.Parameters.AddWithValue("@Password", user.Password);
                     insertCommand.Parameters.AddWithValue("@Role", user.Role);
 
+                    dbConnection.Open();
                     SqlDataAdapter sqlAdapter = new SqlDataAdapter();
                     sqlAdapter.InsertCommand = insertCommand;
                     affectedRow = insertCommand.ExecuteNonQuery();
                 }
-                addUserIntoList();
-                return affectedRow;
+                if (affectedRow >= 1)
+                {
+                    addUserIntoList();
+                    return true;
+                }else
+                {
+                    return false;
+                }
             }
             catch (Exception)
             {
-                return 0;
+                return false;
                 
             }
             finally
@@ -51,8 +60,9 @@ namespace Online_Book_Shopping_System.Repositary
             }
         }
 
-        public void addUserIntoList()
+        public static void addUserIntoList()
         {
+            SqlConnection dbConnection = new SqlConnection(connection);
             string sqlQuery = "Select * From _User";
 
             using (SqlCommand selectCommand = new SqlCommand(sqlQuery,dbConnection))
@@ -65,18 +75,37 @@ namespace Online_Book_Shopping_System.Repositary
                 // Iterate through the Data table to fetch the Row 
                 foreach (DataRow row in userDataTable.Rows)
                 {
-                    User user = new User
-                    {
-                        Name = row[0].ToString(),
-                        UserName = row[1].ToString(),
-                        MailId = row[2].ToString(),
-                        Password = row[3].ToString(),
-                        Role = row[4].ToString(),
-                        UserID = int.Parse(row[5].ToString())
-                    };
+                    User user = new User(
+                        row[0].ToString(),
+                        row[1].ToString(),
+                        row[2].ToString(),
+                        row[3].ToString(),
+                        row[4].ToString(),
+                        int.Parse(row[5].ToString())
+                   );
                     userList.Add(user.UserID, user);  // Add into the List
                 }
             }
+        }
+
+        public static int SignIn(string _userName, string _password)
+        {
+            addUserIntoList();
+            string Role;
+            foreach (KeyValuePair<int, User> user in userList)
+            {
+
+                if (user.Value.UserName == _userName && user.Value.Password == _password)
+                {
+                    Role = user.Value.Role;
+                    return user.Key;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            return 0;
         }
     }
 }
