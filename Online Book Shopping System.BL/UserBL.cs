@@ -19,10 +19,10 @@ namespace Online_Book_Shopping_System.BL
         }
         public static bool SignIn(string userName,string password)
         {
-           int userID = UserRepositary.SignIn(userName, password);
-           string role = user.Role.ToString();
-           int id = user.UserID;
-            if (user.Role!=null)
+            id = UserRepositary.SignIn(userName, password);
+            UserRepositary reposObj = new UserRepositary();
+            role =  UserRepositary.Role;//UserRepositary
+            if (role!=null)
             {
                 return true;
             }else

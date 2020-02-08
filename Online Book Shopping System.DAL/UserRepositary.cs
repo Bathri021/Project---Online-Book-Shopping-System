@@ -13,7 +13,7 @@ namespace Online_Book_Shopping_System.Repositary
     {
         public static Dictionary<int, User> userList = new Dictionary<int, User>();
         static string connection = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString; // Get Connection String From App.Config
-
+        public static string Role;
       
 
         public static bool SignUp(User user)
@@ -62,6 +62,7 @@ namespace Online_Book_Shopping_System.Repositary
 
         public static void addUserIntoList()
         {
+            userList.Clear();
             SqlConnection dbConnection = new SqlConnection(connection);
             string sqlQuery = "Select * From _User";
 
@@ -79,8 +80,8 @@ namespace Online_Book_Shopping_System.Repositary
                         row[0].ToString(),
                         row[1].ToString(),
                         row[2].ToString(),
-                        row[3].ToString(),
                         row[4].ToString(),
+                        row[3].ToString(),
                         int.Parse(row[5].ToString())
                    );
                     userList.Add(user.UserID, user);  // Add into the List
@@ -91,7 +92,6 @@ namespace Online_Book_Shopping_System.Repositary
         public static int SignIn(string _userName, string _password)
         {
             addUserIntoList();
-            string Role;
             foreach (KeyValuePair<int, User> user in userList)
             {
 
@@ -99,10 +99,6 @@ namespace Online_Book_Shopping_System.Repositary
                 {
                     Role = user.Value.Role;
                     return user.Key;
-                }
-                else
-                {
-                    return 0;
                 }
             }
             return 0;
