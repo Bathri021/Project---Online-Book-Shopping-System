@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Web Pages/MasterPage.Master" AutoEventWireup="true" CodeBehind="SellerPage.aspx.cs" Inherits="Online_Book_Shopping_System.Web_Pages.SellerPage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+     <link rel="stylesheet" type="text/css" href="../Styles/SellerPageStyle.css"/>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="sellerPageContent">
@@ -23,7 +24,7 @@
                             <asp:Label ID="lblTitle" runat="server" Text='<%#Bind("Title") %>'></asp:Label>
                         </ItemTemplate>
                         <FooterTemplate>
-                            <asp:TextBox runat="server" ID="txtTitle"></asp:TextBox>
+                            <asp:TextBox runat="server" ID="txtTitle" CssClass="txtField"></asp:TextBox>
                         </FooterTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Author">
@@ -34,7 +35,7 @@
                             <asp:Label ID="lblAuthor" runat="server" Text='<%#Bind("Author") %>'></asp:Label>
                         </ItemTemplate>
                          <FooterTemplate>
-                            <asp:TextBox runat="server" ID="txtAuthor"></asp:TextBox>
+                            <asp:TextBox runat="server" ID="txtAuthor" CssClass="txtField"></asp:TextBox>
                         </FooterTemplate>
                     </asp:TemplateField>
                      <asp:TemplateField HeaderText="Genere">
@@ -45,7 +46,7 @@
                             <asp:Label ID="lblGenere" runat="server" Text='<%#Bind("Genere") %>'></asp:Label>
                         </ItemTemplate>
                          <FooterTemplate>
-                            <asp:TextBox runat="server" ID="txtGenere"></asp:TextBox>
+                            <asp:TextBox runat="server" ID="txtGenere" CssClass="txtField"></asp:TextBox>
                         </FooterTemplate>
                     </asp:TemplateField>
                      <asp:TemplateField HeaderText="Price">
@@ -56,7 +57,7 @@
                             <asp:Label ID="lblPrice" runat="server" Text='<%#Bind("Price") %>'></asp:Label>
                         </ItemTemplate>
                          <FooterTemplate>
-                            <asp:TextBox runat="server" ID="txtPrice"></asp:TextBox>
+                            <asp:TextBox runat="server" ID="txtPrice" CssClass="txtField"></asp:TextBox>
                         </FooterTemplate>
                     </asp:TemplateField>
                      <asp:TemplateField HeaderText="No Of Pages">
@@ -67,7 +68,7 @@
                             <asp:Label ID="lblNoOfPages" runat="server" Text='<%#Bind("NoOfPages") %>'></asp:Label>
                         </ItemTemplate>
                          <FooterTemplate>
-                            <asp:TextBox runat="server" ID="txtNoOfPages"></asp:TextBox>
+                            <asp:TextBox runat="server" ID="txtNoOfPages" CssClass="txtField"></asp:TextBox>
                         </FooterTemplate>
                     </asp:TemplateField>
                       <asp:TemplateField HeaderText="Quantity">
@@ -78,7 +79,7 @@
                             <asp:Label ID="lblQuantity" runat="server" Text='<%#Bind("Quantity") %>'></asp:Label>
                         </ItemTemplate>
                          <FooterTemplate>
-                            <asp:TextBox runat="server" ID="txtQuantity"></asp:TextBox>
+                            <asp:TextBox runat="server" ID="txtQuantity" CssClass="txtField"></asp:TextBox>
                         </FooterTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField>

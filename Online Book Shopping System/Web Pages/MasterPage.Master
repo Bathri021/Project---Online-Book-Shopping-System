@@ -7,28 +7,25 @@
     <title>Online Book Shopping System</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    <link rel="stylesheet" type="text/css" href="../Styles/SignupSigninStyleSheet.css" />
     <link rel="stylesheet" href="../Styles/MasterPageStyle.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../Styles/SignupSigninStyleSheet.css" />
+    <script src="https://kit.fontawesome.com/e5012b6799.js"></script>
 </head>
 <body>
     <div id="Content">
         <div id="frame">
             <h2 id="title">Online Book Shopping System</h2>
             <div class="sidebar">
-                <div id="links">
-                    <asp:HyperLink runat="server" NavigateUrl="~/Web Pages/HomePage.aspx" ><i class="fa fa-home"></i></asp:HyperLink>
-                    <asp:HyperLink runat="server" NavigateUrl="~/Web Pages/SignupPage.aspx" Text="Sign Up"></asp:HyperLink>
-                </div>
+                <asp:HyperLink runat="server" NavigateUrl="~/Web Pages/HomePage.aspx"><i class="fa fa-home"></i></asp:HyperLink>
+                <asp:HyperLink runat="server" NavigateUrl="~/Web Pages/SignupPage.aspx"><i class="fas fa-user"></i></asp:HyperLink>
             </div>
-        </div>
+    </div>
     </div>
     <form id="form1" runat="server">
-    <div>
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-        
-        </asp:ContentPlaceHolder>
-    </div>
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
     </form>
 </body>
 </html>

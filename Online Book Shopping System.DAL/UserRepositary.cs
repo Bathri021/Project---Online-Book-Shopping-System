@@ -11,7 +11,7 @@ namespace Online_Book_Shopping_System.Repositary
 {
     public class UserRepositary
     {
-        public static Dictionary<int, User> userList = new Dictionary<int, User>();
+        public static Dictionary<int, string> userList = new Dictionary<int, string>();
         static string connection = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString; // Get Connection String From App.Config
         public static string Role;
       
@@ -42,7 +42,6 @@ namespace Online_Book_Shopping_System.Repositary
                 }
                 if (affectedRow >= 1)
                 {
-                    addUserIntoList();
                     return true;
                 }else
                 {
@@ -60,48 +59,30 @@ namespace Online_Book_Shopping_System.Repositary
             }
         }
 
-        public static void addUserIntoList()
+
+        public static User SignIn(string _userName, string _password)
         {
             userList.Clear();
             SqlConnection dbConnection = new SqlConnection(connection);
-            string sqlQuery = "Select * From _User";
+            string sqlQuery = "spCheckUserNameandPassword";
 
-            using (SqlCommand selectCommand = new SqlCommand(sqlQuery,dbConnection))
+            using (SqlCommand selectCommand = new SqlCommand(sqlQuery, dbConnection))
             {
-                SqlDataAdapter adapter = new SqlDataAdapter();
-                adapter.SelectCommand = selectCommand;
-                DataSet userDataset = new DataSet();
-                adapter.Fill(userDataset, "User");
-                DataTable userDataTable = userDataset.Tables["User"];
-                // Iterate through the Data table to fetch the Row 
-                foreach (DataRow row in userDataTable.Rows)
-                {
-                    User user = new User(
-                        row[0].ToString(),
-                        row[1].ToString(),
-                        row[2].ToString(),
-                        row[4].ToString(),
-                        row[3].ToString(),
-                        int.Parse(row[5].ToString())
-                   );
-                    userList.Add(user.UserID, user);  // Add into the List
-                }
-            }
-        }
+                selectCommand.CommandType = CommandType.StoredProcedure;
+                selectCommand.Parameters.AddWithValue("@UserName",_userName);
+                selectCommand.Parameters.AddWithValue("@Password", _password);
 
-        public static int SignIn(string _userName, string _password)
-        {
-            addUserIntoList();
-            foreach (KeyValuePair<int, User> user in userList)
-            {
-
-                if (user.Value.UserName == _userName && user.Value.Password == _password)
-                {
-                    Role = user.Value.Role;
-                    return user.Key;
-                }
+                selectCommand.Parameters.Add("@UserID",SqlDbType.Int);
+                selectCommand.Parameters["@UserID"].Direction = ParameterDirection.Output;
+                selectCommand.Parameters.Add("@Role",SqlDbType.VarChar,10);
+                selectCommand.Parameters["@Role"].Direction = ParameterDirection.Output;
+                dbConnection.Open();
+                selectCommand.ExecuteReader();
+                User user = new User( Convert.ToInt32(selectCommand.Parameters["@UserID"].Value.ToString()), selectCommand.Parameters["@Role"].Value.ToString());
+                user.Role =(string) selectCommand.Parameters["@Role"].Value;
+                user.UserID =Convert.ToInt32(selectCommand.Parameters["@UserID"].Value);
+                return user;
             }
-            return 0;
         }
     }
 }

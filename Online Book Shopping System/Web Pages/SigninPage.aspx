@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Web Pages/MasterPage.Master" AutoEventWireup="true" CodeBehind="SigninPage.aspx.cs" Inherits="Online_Book_Shopping_System.SigninPage" %>
-
+<asp:Content ID="headContent" ContentPlaceHolderID="head" runat="server">
+    <link rel="stylesheet" type="text/css" href="../Styles/SignupSigninStyleSheet.css" />
+</asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="divForm">
          <h2 class="formTitle">Sign In</h2>

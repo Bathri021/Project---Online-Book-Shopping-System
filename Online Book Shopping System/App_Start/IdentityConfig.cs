@@ -34,7 +34,7 @@ namespace Online_Book_Shopping_System
         public ApplicationUserManager(IUserStore<ApplicationUser> store)
             : base(store)
         {
-        }
+         }
 
         public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context)
         {

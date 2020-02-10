@@ -1,14 +1,4 @@
-﻿a{
-    color:black;
-}
-body {
-}
-
-.homecontent h2{
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size:2.7em;
-    color:whitesmoke;
-    text-align:center;
+﻿body {
 }
 #Panel{
     display:flex;
@@ -16,7 +6,9 @@ body {
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', 'Times New Roman', serif;
     font-weight:lighter;
     font-size:1.7em;
+    width:inherit;
 }
+
 table {
      color:white;
      border:solid 2px White;
@@ -45,9 +37,17 @@ table tr td{
     padding:10px;
     color:coral;
     background:linear-gradient(rgba(0, 0, 0, 0.75),rgba(0, 0, 0, 0.88));
-
 }
-
+input[type=text]{
+    background-color:transparent;
+    border-color:none;
+}
+.txtField{
+    border:none;
+    outline:none;
+    background-color:transparent;
+    color:white;
+}
 /* MAster Page Style*/
 body {
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;

@@ -1,2 +1,40 @@
-﻿
+﻿/* MAster Page Style*/
+body {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-image:url("../Backgrounds/BG-Signup.jpeg");
+    background-repeat:no-repeat;
+    background-size:cover;
+}
+#frame{
+    display:flex;
+    justify-content:center;
+}
+#title{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, san-serif;
+    font-size:2.3em;
+    justify-content:center;
+    color:lavenderblush;
+}
 
+.sidebar{
+    justify-content:flex-end;
+    padding-right:10px;
+}
+.sidebar a{
+    float:left;
+    text-align: center;
+    margin-top:35px;
+    margin-right:5px;
+    padding:0px 10px;
+    transition: all 0.3s ease;
+    color: white;
+    font-size: 36px;
+    background-color: transparent;
+    border:none;
+    position:relative;
+    justify-content:flex-end;
+}
+
+.sidebar a:hover{
+     background-color: #000;
+}

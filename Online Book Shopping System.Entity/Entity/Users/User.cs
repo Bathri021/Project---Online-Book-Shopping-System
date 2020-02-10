@@ -9,6 +9,15 @@
         public string Role { get; set; }
         public int UserID;
 
+        public User()
+        {
+
+        }
+        public User(int userID,string role)
+        {
+            this.UserID = userID;
+            this.Role = role;
+        }
         public User(string name,string userName,string mailID,string password,string role,int userID)
         {
             this.Name = name;

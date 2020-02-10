@@ -181,6 +181,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
+    <Content Include="Styles\SellerPageStyle.css" />
     <Content Include="Web Pages\HomePage.aspx" />
     <Content Include="Styles\HomeStyle.css" />
     <Content Include="Web Pages\MasterPage.Master">

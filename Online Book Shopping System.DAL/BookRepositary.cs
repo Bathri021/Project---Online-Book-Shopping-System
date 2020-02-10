@@ -16,16 +16,16 @@ namespace Online_Book_Shopping_System.DAL
         static SqlConnection dbConnection = new SqlConnection(connection);
         public static DataTable refereshData()
         {
-
             string query = "Select * From Book";
-            SqlCommand command = new SqlCommand(query, dbConnection);
-            SqlDataAdapter adapter = new SqlDataAdapter();
-            adapter.SelectCommand = command;
-            DataSet dataSet = new DataSet();
-            adapter.Fill(dataSet, "Book");
-            DataTable bookTable = dataSet.Tables["Book"];
-            command.Dispose();
-            return bookTable;
+            using (SqlCommand command = new SqlCommand(query, dbConnection))
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.SelectCommand = command;
+                DataSet dataSet = new DataSet();
+                adapter.Fill(dataSet, "Book");
+                DataTable bookTable = dataSet.Tables["Book"];
+                return bookTable;
+            }
         }
         public static DataTable refereshSellerBookData(int id)
         {

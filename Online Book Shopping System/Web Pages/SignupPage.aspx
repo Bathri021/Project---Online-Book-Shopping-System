@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Web Pages/MasterPage.Master" AutoEventWireup="true" CodeBehind="SignupPage.aspx.cs" Inherits="Online_Book_Shopping_System.WebForm2" %>
+<asp:Content ID="headContent" ContentPlaceHolderID="head" runat="server">
+    <link rel="stylesheet" type="text/css" href="../Styles/SignupSigninStyleSheet.css" />
+</asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
- <link rel="stylesheet" type="text/css" href="SignupSigninStyleSheet.css" />
     <div id="divForm">
         <div id="registrationForm">
             <h2 class="formTitle">Sign Up</h2>
@@ -87,7 +89,7 @@
                     <tr>
                         <td>
                             <h3>Already have an account?</h3>
-                            <a href="SigninPage.aspx" target="_self">Sign In</a>
+                            <a href="SigninPage.aspx" target="_self">Sign In <i class="fas fa-sign-in-alt"></i>s</a>
                         </td>
                     </tr>
                 </table>
